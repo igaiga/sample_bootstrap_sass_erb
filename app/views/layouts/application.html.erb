@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SampleBootstrapSassErb</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>SampleBootstrapSassErb</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<%= yield %>
+  <body>
 
-</body>
+    <div class="container">
+      <% flash.each do |name, msg| %>
+      <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+        <button type="button" class="close" data-dismiss="alert">x</button>
+        <%= msg  %>
+      </div>
+      <% end %>
+
+      <div class="row">
+        <div class="span3">
+          <h2>Sidebar</h2>
+          <p>aaaaa</p>
+          <p>bbbbb</p>
+          <p>ccccc</p>
+          <p>ddddd</p>
+          <p>eeeee</p>
+        </div>
+        <div class="span9"><%= yield %></div>
+      </div>
+    </div>
+
+  </body>
 </html>
